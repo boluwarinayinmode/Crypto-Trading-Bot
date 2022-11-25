@@ -10,4 +10,3 @@ module.exports = {
   }
 }
 
-//UTALPGAZCFO4Z3RXAWNXXIKFET4GEW
