@@ -1,12 +1,25 @@
 require('dotenv').config()
-const config = require('../configuration/index.js')
-const coinbase = require('coinbase');
+const config = require('../configuration/index.js');
+const pricing = require('../pricing/index.js');
+const database = require('../database/index.js')
 
-const apiKey=process.env.COINBASE_API_KEY
-const apiSecret=process.env.COINBASE_API_SECRET
-const client = new coinbase.Client({apiKey, apiSecret})
+
+const mainLoop = async () => {
+   const spotPrice = await pricing.getSpotPrice();
+   const boyPrice = await pricing.getBuyPrice();
+   const sellPrice = await pricing.getSellPrice();
+ 
+   
+   const time = 10 * 1000;
+   await new Promise(resolve => setTimeout(resolve, time));
+   mainLoop();
+}
 module.exports = {
   start: async () => {
+    await database.connect()
+    pricing.setCurrency('USD')
+    mainLoop();
+
   }
 }
 
