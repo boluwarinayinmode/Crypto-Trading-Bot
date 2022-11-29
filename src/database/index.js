@@ -11,7 +11,7 @@ module.exports = {
     return new Promise((resolve, reject) => {
       const connectionUrl = `${url}/${db}`
       mongoose.connect(`${url}/${db}`, {
-        useMongoClient: true,
+        // useMongoClient: true,
         promiseLibrary: global.Promise
       })
       const conn = mongoose.connection

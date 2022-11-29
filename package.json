@@ -22,7 +22,9 @@
     "coinbase": "^2.0.6",
     "dotenv": "^16.0.3",
     "forever": "^0.15.3",
-    "mongoose": "^4.11.13",
+    "moment": "^2.29.4",
+    "mongodb": "^4.12.1",
+    "mongoose": "^6.7.4",
     "nodemon": "^2.0.20"
   }
 }
